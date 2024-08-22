@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeal Of Islam Organization</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="charity-images/logo.png" type="image/png">
+
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Nunito', sans-serif;
+      }
+      nav {
+        z-index: 10; /* Ensure navbar is on top */
+      }
+      nav a {
+        transition: color 0.3s ease;
+      }
+      nav a:hover {
+        color: #1d4ed8; /* Blue-700 */
+      }
+      .section-title {
+        font-size: 2.25rem;
+        color: #1f2937; /* Gray-800 */
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      .section-title:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 4rem;
+        height: 0.25rem;
+        background-color: #1d4ed8; /* Blue-700 */
+        border-radius: 0.125rem;
+      }
+      .slideshow {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 4rem); /* Full viewport height minus navbar height */
+        overflow: hidden;
+        padding-top: 4rem; /* Space for navbar */
+      }
+      .slides {
+        display: flex;
+        transition: transform 1s ease-in-out;
+        width: 100%;
+        height: 100%;
+      }
+      .slide {
+        min-width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .slideshow img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure image covers the slide area */
+        border-radius: 0.5rem;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(31, 41, 55, 0.6); /* Semi-transparent overlay */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+      }
+    </style>
+    <script>
+      let currentSlide = 0;
+      function showSlides() {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      setInterval(showSlides, 3000); // Change image every 3 seconds
+    </script>
+</head>
+<body class="bg-gray-100 leading-normal tracking-normal">
+
+   <!-- Navigation -->
+  <nav class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Brand and Logo -->
+        <div class="flex items-center">
+          <img src="charity-images/logo.png" alt="Logo" class="h-16 w-16 mr-4">
+          <a href="#home" class="text-2xl font-bold text-gray-800 hover:text-blue-700">Zeal Of Islam Organisation</a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300">Home</a>
+          <a href="#about" class="text-gray-600 hover:text-blue-700 transition duration-300">About</a>
+          <a href="#what-we-do" class="text-gray-600 hover:text-blue-700 transition duration-300">What We Do</a>
+          <a href="#contact" class="text-gray-600 hover:text-blue-700 transition duration-300">Contact</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <div class="md:hidden flex items-center">
+          <button id="menu-toggle" class="text-gray-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-white shadow-lg transition-transform transform translate-x-full">
+      <div class="flex justify-between items-center p-4">
+        <button id="menu-close" class="text-gray-600 hover:text-blue-700 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="flex flex-col items-center space-y-4 py-4">
+        <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300">Home</a>
+        <a href="#about" class="text-gray-600 hover:text-blue-700 transition duration-300">About</a>
+        <a href="#what-we-do" class="text-gray-600 hover:text-blue-700 transition duration-300">What We Do</a>
+        <a href="#contact" class="text-gray-600 hover:text-blue-700 transition duration-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- JavaScript for mobile menu toggle -->
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.remove('translate-x-full');
+    });
+
+    document.getElementById('menu-close').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.add('translate-x-full');
+    });
+  </script>
+
+<!-- Home Section -->
+<section id="home" class="relative bg-gray-100">
+    <div class="slideshow relative">
+      <div class="slides">
+        <div class="slide">
+          <img src="charity-images/children.png" alt="Slide 1">
+        </div>
+        <div class="slide">
+          <img src="charity-images/black.png" alt="Slide 2">
+        </div>
+        <div class="slide">
+          <img src="charity-images/groups.png" alt="Slide 3">
+        </div>
+      </div>
+      <div class="overlay flex flex-col items-center justify-center h-full absolute inset-0 bg-black bg-opacity-40">
+        <p class="text-white text-xl text-center max-w-2xl mx-auto">We believe in the power of compassion and community. Join us in making a difference, one life at a time, through our various charitable initiatives.</p>
+        <!-- Donate Button -->
+        <button onclick="openDonateModal(event)" class="mt-6 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          Donate Now
+        </button>
+      </div>
+    </div>
+  
+    <!-- Donate Modal -->
+    <div id="donate-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-lg w-full">
+        <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="flex flex-col items-center">
+          <img src="charity-images/Donate.png" alt="Donate" class="w-full h-auto rounded-lg">
+          <p class="mt-4 text-gray-600 text-center">Your generous donation helps us continue our vital work and support those in need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Add this JavaScript at the bottom of your HTML or in a separate JS file -->
+  <script>
+    function openDonateModal(event) {
+      event.preventDefault();
+      document.getElementById('donate-modal').classList.remove('hidden');
+    }
+  
+    function closeDonateModal() {
+      document.getElementById('donate-modal').classList.add('hidden');
+    }
+  </script>
+  
+  
+  
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">About Us</h2>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">
+                    <div class="text-blue-700 mb-4">
+                        <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.75a4.25 4.25 0 00-4.25 4.25v4.75a4.25 4.25 0 00-2.5 3.9v1.4a1.75 1.75 0 001.75 1.75h.5v1a3.5 3.5 0 007 0v-1h.5a1.75 1.75 0 001.75-1.75v-1.4a4.25 4.25 0 00-2.5-3.9V6a4.25 4.25 0 00-4.25-4.25zM12 3.5a2.75 2.75 0 012.75 2.75v4.75a2.75 2.75 0 01-5.5 0v-4.75A2.75 2.75 0 0112 3.5zm-5.5 8.25h11v.65a2.75 2.75 0 01-2.5 2.7v1.4a1.5 1.5 0 01-3 0v-1.4a2.75 2.75 0 01-2.5-2.7v-.65z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Donation</h3>
+                    <p class="text-gray-600">Donations are a powerful way to make a positive impact in the world! 🌍✨ They allow us to support causes we care about, whether it's helping the less fortunate, funding medical research, or preserving our environment. 🌱 Remember, your donation can light up someone’s life! 💡🌟</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">
+                    <div class="text-blue-700 mb-4">
+                        <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3c.69 0 1.36.23 1.91.66L21.5 10l-1.65 1.65-5.15-5.17a1 1 0 00-1.41 0l-1.74 1.74a1 1 0 000 1.41l5.17 5.15L10 20.5 3 13.5l4.58-4.59a1 1 0 00-1.41-1.41L1 12.5l7.5-7.5A2.75 2.75 0 0112 3z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Fundraising</h3>
+                    <p class="text-gray-600">🌟 Join our Friday Challenges! 🌟 Each week, we raise money for exciting projects and initiatives that make a difference. You can contribute any amount you feel inspired to give! 💖 Let's come together to create positive change, one challenge at a time. Ready to make an impact? 💪✨ #FridayChallenge #GiveBack 🎉</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">
+                    <div class="text-blue-700 mb-4">
+                        <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.75a4.25 4.25 0 00-4.25 4.25v4.75a4.25 4.25 0 00-2.5 3.9v1.4a1.75 1.75 0 001.75 1.75h.5v1a3.5 3.5 0 007 0v-1h.5a1.75 1.75 0 001.75-1.75v-1.4a4.25 4.25 0 00-2.5-3.9V6a4.25 4.25 0 00-4.25-4.25zM12 3.5a2.75 2.75 0 012.75 2.75v4.75a2.75 2.75 0 01-5.5 0v-4.75A2.75 2.75 0 0112 3.5zm-5.5 8.25h11v.65a2.75 2.75 0 01-2.5 2.7v1.4a1.5 1.5 0 01-3 0v-1.4a2.75 2.75 0 01-2.5-2.7v-.65z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Volunteers</h3>
+                    <p class="text-gray-600">
+                        🌍✨ **Join the Community!** ✨🌍.In our vibrant world, **anyone** can be a member!. Whether you love to share ideas 💡,and come up with projects to help the community💖,So, come one, come all! 🌟 Let’s build a community filled with love, creativity, and laughter!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- What We Do Section -->
+<section id="what-we-do" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="section-title text-center">What We Do</h2>
+        <p class="mt-8 text-gray-600 text-center text-lg max-w-3xl mx-auto">Our organization is involved in various initiatives aimed at supporting the poor and underprivileged. We came up with projects that help the society.</p>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Orphans Support Card -->
+            <div class="bg-white p-8 rounded-lg shadow-xl relative">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Support the orphans with basic needs</h3>
+                <p class="text-gray-600">Our team recently had the privilege of visiting Good Hope Markazil Banatil Islamia children's home to distribute food and essential supplies. Witnessing the joy and gratitude on the children's faces was truly heartwarming.</p>
+                <!-- Read More Button -->
+                <button onclick="openModal('orphans-modal')" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Read More</button>
+                <!-- Modal -->
+                <div id="orphans-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+                    <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-4xl w-full">
+                        <button onclick="closeModal('orphans-modal')" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row">
+                            <img src="charity-images/food.png" alt="Orphans" class="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 md:mr-4">
+                            <div class="md:w-1/2">
+                                <p class="text-xl textgray-600">We are grateful for the opportunity to make a positive impact on their lives and support their well-being. Your contribution helps us continue these vital initiatives.We were overwhelmed by the warmth and resilience of the children, despite the challenges they face. We distributed essential supplies, including food, clothing, and hygiene products, and spent time playing games and interacting with the children. The joy and gratitude in their eyes were truly inspiring. It's a privilege to be able to support such a wonderful organization and make a positive difference in these children's lives.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Well Construction Card -->
+            <div class="bg-white p-8 rounded-lg shadow-xl relative">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Well Construction</h3>
+                <p class="text-gray-600">In collaboration with Holding Hands Organization, our team successfully completed the construction of a well at Ummu Asia children's home. This new water source will significantly enhance the health and well-being of the children residing there.</p>
+                <!-- Read More Button -->
+                <button onclick="openModal('well-modal')" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Read More</button>
+                <!-- Modal -->
+                <div id="well-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+                    <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-4xl w-full">
+                        <button onclick="closeModal('well-modal')" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row">
+                            <img src="charity-images/well.png" alt="Well Construction" class="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 md:mr-4">
+                            <div class="md:w-1/2">
+                                <p class="text-xl text-gray-600">The well provides clean water to the children, significantly improving their daily lives and health. Your support in this project ensures they have access to this essential resource,"Together with Holding Hands Organization, we have invested in the future of the children at Ummu Asia children's home. The well we installed will provide a sustainable source of clean water for years to come, ensuring that these children have the opportunity to thrive and reach their full potential.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Distribution Card -->
+            <div class="bg-white p-8 rounded-lg shadow-xl relative">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Food Distribution</h3>
+                <p class="text-gray-600">We organize food distribution drives to combat hunger and ensure that everyone has access to nutritious meals.Your contributions help us continue providing these essential food supplies to those in need, ensuring they have the nutrition required to thrive.</p>
+                <!-- Read More Button -->
+                <button onclick="openModal('food-modal')" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Read More</button>
+                <!-- Modal -->
+                <div id="food-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+                    <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-4xl w-full">
+                        <button onclick="closeModal('food-modal')" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row">
+                            <img src="charity-images/eid2.png" alt="Food Distribution" class="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 md:mr-4">
+                            <div class="md:w-1/2">
+                                <p class="text-xl text-gray-600">For many children in orphanages, these gifts may be the only ones they receive, making the gesture even more significant. It not only brings immediate happiness but also fosters a sense of belonging and inclusion. The joy that these children experience during Eid when they receive gifts is a powerful reminder of the impact that small acts of kindness can have on the lives of others.
+
+                                    Organizations and individuals who participate in gift-giving during Eid help create memorable experiences for these children, reinforcing the values of empathy and generosity that are central to the holiday. It's a beautiful way to spread love and happiness, ensuring that every child, regardless of their circumstances, can celebrate Eid with a smile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mosque Construction Card -->
+            <div class="bg-white p-8 rounded-lg shadow-xl relative">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Enhancement of Mosque</h3>
+                <p class="text-gray-600">Our latest project involves the construction of a mosque in a rural area, providing the community with a place for prayer and gathering. This mosque will serve as a center for spiritual and social activities, fostering a sense of unity and belonging among the residents.</p>
+                <!-- Read More Button -->
+                <button onclick="openModal('mosque-modal')" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Read More</button>
+                <!-- Modal -->
+                <div id="mosque-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+                    <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-4xl w-full">
+                        <button onclick="closeModal('mosque-modal')" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row">
+                            <img src="charity-images/mosque.png" alt="Mosque Construction" class="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 md:mr-4">
+                            <div class="md:w-1/2">
+                                <p class="text-xl text-gray-600">"Our community has taken a significant step towards enhancing the spiritual experience of our congregation. By investing in new, high-quality speakers, we have significantly improved the sound quality during prayers and sermons. These upgraded speakers ensure that everyone can hear clearly and fully participate in religious activities. This enhancement fosters a more inclusive and fulfilling worship experience for all."
+        </div>
+    </div>
+</section>
+
+<script>
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.remove('hidden');
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+  }
+</script>
+
+
+
+<!-- Footer/Contact Section -->
+<footer id="contact" class="bg-gray-800 py-12">
+    <div class="container mx-auto px-6 text-center text-white md:flex md:justify-center md:items-center">
+      <div class="md:w-1/2 xl:w-1/3">
+        <h3 class="text-3xl font-bold">Get in Touch</h3>
+        <p class="mt-6 text-gray-400">You can reach us at:</p>
+        <!-- <p class="mt-2">Email: <a href="mailto:contact@charityorg.com" class="underline hover:text-gray-200">contact@charityorg.com</a></p> -->
+        <p>Phone: <a href="tel:+1234567890" class="underline hover:text-gray-200">0799009180</a></p>
+      </div>
+      <div class="md:w-1/2 xl:w-1/3 md:ml-12">
+        <div class="mt-8 flex justify-center space-x-6">
+          <a href="https://chat.whatsapp.com/FxdipDE0sftLbsey5PF86F" target="_blank" class="text-white hover:text-gray-400">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href="https://www.tiktok.com/@zealorganization?lang=en" target="_blank" class="text-white hover:text-gray-400">
+            <i class="fab fa-tiktok fa-2x"></i>
+          </a>
+          <a href="https://www.youtube.com/@Zealofislam.organisation" target="_blank" class="text-white hover:text-gray-400">
+            <i class="fab fa-youtube fa-2x"></i>
+          </a>
+          <a href="https://www.instagram.com/_.zealorganization/" target="_blank" class="text-white hover:text-gray-400">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 xl:w-1/3 md:ml-12">
+        <p class="mt-4 text-gray-400">**Donate:** You can support our cause by sending money to 0799009180.</p>
+        <a href="#" onclick="openDonateModal(event)" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          <i class="fas fa-donate mr-2"></i> Donate
+        </a>
+      </div>
+    </div>
+    <p class="mt-4 text-gray-400 text-center">© 2024 Zeal Of Islam Organization. All rights reserved.</p>
+  </footer>
+  
+  <!-- Modal -->
+  <div id="donate-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+    <div class="bg-white p-8 rounded-lg shadow-xl relative max-w-lg w-full">
+      <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <img src="charity-images/donate-image.png" alt="Donate" class="w-full rounded-lg mb-4">
+      <p class="text-gray-800">Thank you for considering a donation. Your support is vital in helping us continue our mission.</p>
+    </div>
+  </div>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <script>
+    function openDonateModal(event) {
+      event.preventDefault();
+      document.getElementById('donate-modal').classList.remove('hidden');
+    }
+  
+    function closeDonateModal() {
+      document.getElementById('donate-modal').classList.add('hidden');
+    }
+  </script>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>
